@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  font-family: 'Pattaya', sans-serif;
+  background-color: #b7a28a;
+  color: #670D2F;
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><text y="24" font-size="24">🥧</text></svg>') 16 16, auto;
+}
+
+.menu-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  z-index: 1;}
+
+  .menu-grid.blur .menu-item:not(.active) {
+    filter: blur(4px);
+    transform: scale(1);
+  }
+
+.menu-title {
+  font-family: 'Mea Culpa', cursive;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.menu-item {
+  background-color: #f1eae8;
+  border-radius: 15px;
+  overflow: hidden;
+  padding-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border: 2px solid rgba(103, 13, 47, 0.2);
+  box-shadow: 0 4px 10px rgba(103, 13, 47, 0.1);
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(103, 13, 47, 0.25);
+}
+
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-item h2 {
+  margin: 15px 0 5px;
+  font-size: 1.5rem;
+}
+
+.menu-item p {
+  font-size: 1rem;
+  margin: 0 15px 10px;
+  color: #4B352A;
+}
+
+.menu-item span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.menu-item .smoke {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><text y="24" font-size="24">🥯</text></svg>') 16 16, auto;
+
+}
+
+.menu-item:hover .smoke {
+  animation: smokeUp 1.5s ease-out infinite;
+  opacity: 1;
+}
+
+.menu-container.blur .menu-item:not(.active) {
+  filter: blur(4px);
+  transform: scale(1);
+}
+
+@keyframes smokeUp {
+  0% { transform: translateX(-50%) translateY(-20px) scale(1); opacity: 0.6; }
+  100% { transform: translateX(-50%) translateY(-120px) scale(1.5); opacity: 0; }
+}
+
+
+.background-stars {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
