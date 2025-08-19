@@ -36,3 +36,30 @@ for (let i = 0; i < 50; i++) {
   star.style.left = Math.random() * 100 + '%';
   starContainer.appendChild(star);
 }
+
+function choose(btn) {
+    btn.classList.add("chosen");
+  }
+  
+
+function choose(btn) {
+  const item = btn.closest('.menu-item');
+  const selected = !item.classList.contains('chosen');
+  item.classList.toggle('chosen', selected);
+  btn.classList.toggle('chosen', selected);
+  btn.textContent = selected ? 'Chosen' : 'Choose';
+}
+
+function resetSection(sectionId) {
+  const grid = document.getElementById(sectionId);
+  if (!grid) return;
+
+  grid.querySelectorAll('.menu-item').forEach(item => {
+    item.classList.remove('chosen');
+    const btn = item.querySelector('button');
+    if (btn) {
+      btn.classList.remove('chosen');
+      btn.textContent = 'Choose';
+    }
+  });
+}
